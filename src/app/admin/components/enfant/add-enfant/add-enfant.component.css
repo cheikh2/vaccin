@@ -1,0 +1,30 @@
+h3  { 
+    color: #dd0d06; 
+    font-family: "Great Vibes", cursive; 
+    font-size: 20px; 
+    line-height: 40px; 
+    font-weight: normal;  
+    text-align: center; 
+    text-shadow: 0 1px 1px #fff;
+    }
+
+.next-2{
+    margin-left: 380px;
+}
+
+.next-3{
+    margin-left: 230px;
+} 
+
+.input{
+    width: 100%;
+}
+.inputOp{
+    width: 100%;
+    position: absolute;
+    margin-top: 20px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

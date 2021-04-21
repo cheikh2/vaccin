@@ -1,0 +1,95 @@
+<div class="main" style="display: flex  !important;">
+  <div style="margin-right: 85px;">
+    <button class="btnCreate" mat-raised-button (click)="onCreate()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div style="margin-right: 15px;">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchRv" placeholder="Rechercher..." />
+    <button type="submit"><i class="fas fa-search"></i></button>
+  </div>
+
+  <h2 style="margin-right: 15px;">Les Rendez-vous</h2>
+
+  <div style="margin-right: 15px;">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchRv" placeholder="Rechercher..." />
+    <button class="btn1" type="submit"><i class="fas fa-search"></i></button>
+  </div>
+
+</div>
+
+<table class="container">
+  <thead>
+    <tr>
+      <th>
+        <h1>ID</h1>
+      </th>
+      <th>
+        <h1>NUM ORDRE</h1>
+      </th>
+      <th>
+        <h1>DATE RV</h1>
+      </th>
+      <th>
+        <h1>PRENOM ENF</h1>
+      </th>
+      <th>
+        <h1>NOM ENF</h1>
+      </th>
+      <th>
+        <h1>ETAT RV</h1>
+      </th>
+      <th>
+        <h1>DETAIL</h1>
+      </th>
+      <th>
+        <h1>EFFECTUER</h1>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rv of rvs | filter:searchRv | paginate: {
+          itemsPerPage: 4,
+          currentPage: page,
+          totalItems: totalLength}">
+      <td>{{rv.id}}</td>
+      <td>{{rv.enfant.numordre}}</td>
+      <td>{{rv.daterv | date: 'yyyy-MM-dd'}}</td>
+      <td>{{rv.enfant.prenom}}</td>
+      <td>{{rv.enfant.nom}}</td>
+
+      <td>
+        <div *ngIf="rv.etatrv; else elseBlock">
+          <button class="btn btn-success" style="border-radius: 20px;">{{ rv.etatrendezvous }}&nbsp;<span
+            class="fas fa-check-circle"></span>
+          </button>
+
+          </div>
+        <ng-template #elseBlock>
+          <button class="btn btn-danger" style="border-radius: 20px;">{{ rv.etatrendezvous }}&nbsp;<span
+            class="fas fa-check-circle"></span>
+          </button>
+        </ng-template>
+      </td>
+
+      <td>
+        <button class="btn btn-success" style="border-radius: 20px;" [routerLink]="[ '/admin/detailRv', rv.id ]">
+          <span class="fas fa-eye"></span>
+        </button>
+      </td>
+
+      <td>
+        <button class="btn btn-primary" style="border-radius: 20px;" [routerLink]="[ '/admin/editRv', rv.id ]">
+          <span class="fas fa-edit"></span>
+        </button>
+      </td>
+      <!-- <td>
+        <button class="btn btn-primary" style="border-radius: 20px;" [routerLink]="[ '/admin/editRv', rv.id ]">
+          <span class="fas fa-edit"></span>
+        </button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+<pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>

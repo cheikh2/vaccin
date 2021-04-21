@@ -1,0 +1,84 @@
+<div class="survey-form">
+    <form>
+        <div class="upper-headings">
+            <h1><strong>Informations de L'enfant </strong></h1>
+        </div>
+        <hr>
+        <p>
+            Prenom : <input type="text" [(ngModel)]="currentEnfant.prenom" name="prenom" readonly>
+            Nom : <input type="text" [(ngModel)]="currentEnfant.nom" name="nom" readonly>
+            Sexe : <input type="text" [(ngModel)]="currentEnfant.sexe" name="sexe" readonly>
+            Adresse : <input type="text" [(ngModel)]="currentEnfant.adresse" name="adresse" readonly>
+            Date-Nais : <input type="text" [ngModel]="currentEnfant.datenaissance | date: 'yyyy-MM-dd'"
+                name="datenaissance" readonly>
+            
+        </p>
+        <hr>
+        <p>
+            Etat-Civil : <input type="text" [(ngModel)]="currentEnfant.numetatcivil" name="numetatcivil" readonly>
+            N-Ordre : <input type="text" [(ngModel)]="currentEnfant.numordre" name="numordre" readonly>
+            Pnm-Mere : <input type="text" [(ngModel)]="currentEnfant.prenommere" name="prenommere" readonly>
+            Nm-Mere : <input type="text" [(ngModel)]="currentEnfant.nommere" name="nommere" readonly>
+        </p>
+        <hr>
+        <p>
+            Tel-Mere : <input type="text" [(ngModel)]="currentEnfant.telmere" name="telmere" readonly>
+            Etat-Ent : <input type="text" [(ngModel)]="currentEnfant.etatentree" name="etatentree" readonly>
+            Etat-Sort : <input type="text" [(ngModel)]="currentEnfant.etatsortie" name="etatsortie" readonly>
+            Prenom-CQ : <input type="text" [(ngModel)]="currentEnfant.prenomchefquartier" name="prenomchefquartier" readonly>
+            Nom-CQ : <input type="text" [(ngModel)]="currentEnfant.nomchefquartier" name="nomchefquartier" readonly>
+        </p>
+        <hr>
+        <p>
+            
+            Tel-CQ : <input type="text" [(ngModel)]="currentEnfant.telchefquartier" name="telchefquartier" readonly>
+            Prenom-BD : <input type="text" [(ngModel)]="currentEnfant.prenombadienegokh" name="prenombadienegokh" readonly>
+            Nom-BD : <input type="text" [(ngModel)]="currentEnfant.nombadienegokh" name="nombadienegokh" readonly>
+            Tel-BD : <input type="text" [(ngModel)]="currentEnfant.telbadiennegokh" name="telbadiennegokh" readonly>
+        </p>
+        <hr>
+        <p>
+            Motif de Sortie : <input type="textarea" class="textarea" [(ngModel)]="currentEnfant.motifsortie"
+                name="motifsortie" readonly>
+        </p>
+
+        <button class="submit" mat-raised-button color="primary" (click)="onRedirect()">Modifier</button>
+
+    </form>
+</div>
+
+
+<!-- <section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Create a new owner</mat-card-title>
+        <form autocomplete="off" [formGroup]="editEnfant" novalidate (ngSubmit)="onEditEnfant()"
+            fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-card-content>
+                <mat-form-field>
+                    <input matInput type="text" [(ngModel)]="currentEnfant.prenom" name="prenom">
+                    <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth"
+                        formControlName="dateOfBirth" id="dateOfBirth" readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Owner's address" formControlName="address">
+                    <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+                </mat-form-field>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+                <mat-card-actions align="center">
+                    <button mat-raised-button color="primary" >Create</button>
+                    <button type="button" mat-raised-button color="warn" (click)="onClose()">Cancel</button>
+                  </mat-card-actions>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</section> -->

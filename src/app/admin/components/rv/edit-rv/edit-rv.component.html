@@ -1,0 +1,138 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Formulaire de modification de rendez-vous</mat-card-title>
+        <form [formGroup]="editRv" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center"
+            fxLayoutGap="10px">
+            <mat-card-content>
+
+                <div class="row">
+                    <mat-form-field class="col-md-3">
+                        <input matInput type="text" formControlName="numordre" placeholder="Num-Ordre" value={{numordre}} id="numordre" style="font-weight: bold; color: blue;">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-3">
+                        <input matInput type="text" formControlName="prenom" placeholder="Prenom" value={{prenom}} id="prenom" style="font-weight: bold; color: blue;">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-3">
+                        <input matInput type="text" formControlName="nom" placeholder="Nom" value={{nom}} id="nom" style="font-weight: bold; color: blue;">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-3">
+                        <input matInput [matDatepicker]="picker1" placeholder="Date de Naissance" formControlName="datenaissance" value={{datenaissance}}
+                            id="datenaissance" readonly (click)="picker.open()" style="font-weight: bold; color: blue;">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+
+                </div>
+
+                <div class="row">
+                    
+                    <mat-form-field class="col-md-3">
+                        <input matInput type="text" formControlName="prenommere" placeholder="Prenom Mere" value={{prenommere}}
+                            id="prenommere" style="font-weight: bold; color: blue;">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-3">
+                        <input matInput type="text" formControlName="nommere" placeholder="Nom Mere" id="nommere" value={{nommere}} style="font-weight: bold; color: blue;">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-3">
+                        <input matInput type="text" formControlName="libelleaction" placeholder="Action"
+                        value={{libelleaction}} id="libelleaction" style="font-weight: bold; color: blue;">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="col-md-3">
+                        <input matInput [matDatepicker]="picker" placeholder="Date du Rendez-vous" formControlName="daterv" value={{daterv}}
+                            id="daterv" readonly (click)="picker.open()" style="font-weight: bold; color: blue;">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                </div>
+
+                <div class="row">
+                    
+                    <mat-form-field class="col-md-4">
+                        <input matInput formControlName="poid" placeholder="Poid" value={{poid}}
+                            id="poid">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input matInput formControlName="age" placeholder="Age" value={{age}}
+                            id="age">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input matInput formControlName="taille" placeholder="Taille" value={{taille}}
+                            id="taille">
+                    </mat-form-field>
+
+                </div>
+                <div class="row">
+
+                    <mat-form-field class="col-md-4">
+                        <mat-label>POIDS/AGE</mat-label>
+                        <mat-select formControlName="poidsage" value={{poidsage}} id="poidsage">
+                          <mat-option value="pip">PIP</mat-option>
+                          <mat-option value="ipm">IPM</mat-option>
+                          <mat-option value="ips">IPS</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field class="col-md-4">
+                        <mat-label>OEUDEME</mat-label>
+                        <mat-select formControlName="oeudeme" value={{oeudeme}} id="oeudeme">
+                          <mat-option value="neant">Neant</mat-option>
+                          <mat-option value="un">Un</mat-option>
+                          <mat-option value="deux">Deux</mat-option>
+                          <mat-option value="trois">Trois</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field class="col-md-4">
+                        <mat-label>TAILLE/AGE</mat-label>
+                        <mat-select formControlName="oeudeme" value={{oeudeme}} id="oeudeme">
+                          <mat-option value="mcs">MCS</mat-option>
+                          <mat-option value="mcm">MCM</mat-option>
+                          <mat-option value="pmc">PMC</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                </div>
+
+                <div class="row">
+                      <mat-form-field class="col-md-4">
+                        <mat-label>POIDS/TAILLE</mat-label>
+                        <mat-select formControlName="poidsage" value={{poidstaille}} id="poidstaille">
+                          <mat-option value="ben">BEN</mat-option>
+                          <mat-option value="mas">MAS</mat-option>
+                          <mat-option value="mam">MAM</mat-option>
+                          <mat-option value="surpoidobesite">SURPOIDSOBESITE</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field class="col-md-4">
+                        <mat-label>MILDA</mat-label>
+                        <mat-select formControlName="milda" value={{milda}} id="milda">
+                          <mat-option value="oui">OUI</mat-option>
+                          <mat-option value="non">NON</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field class="col-md-4">
+                        <input matInput formControlName="pb" placeholder="PERIMETRE BRACIALE" value={{pb}}
+                            id="pb">
+                    </mat-form-field>
+  
+                </div>
+
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!editRv.valid">Create</button>
+                <button type="button" mat-raised-button color="warn" (click)="onRedirect()">Annuler</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</section>

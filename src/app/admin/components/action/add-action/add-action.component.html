@@ -1,0 +1,34 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Formulaire d'ajout Type</mat-card-title>
+        <form [formGroup]="formaddAction" autocomplete="off" novalidate fxLayout="column wrap"
+            fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field class="col-md-6">
+                        <input matInput type="text" formControlName="libelleaction" placeholder="Libelle Action"
+                            id="libelleaction">
+                        <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                        <mat-error *ngIf="hasError('libelleaction', 'required')">Numero Obligatoire</mat-error>
+                        <mat-error *ngIf="hasError('libelleaction', 'maxlength')">You have more than 60 characters
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-6">
+                        <mat-label>Choisissez un Type</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option value="/api/types/{{ type.id }}" *ngFor="let type of types">
+                                {{type.libelletype}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('type', 'required')">type Obligatoire</mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" (click)="onCreate()"
+                    [disabled]="!formaddAction.valid">Create</button>
+                <button type="button" mat-raised-button color="warn" (click)="onClose()">Annuler</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</section>

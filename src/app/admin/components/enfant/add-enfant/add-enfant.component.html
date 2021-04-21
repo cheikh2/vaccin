@@ -1,0 +1,227 @@
+<h3>Formulaire d'enregistrement d'enfant</h3>
+<!-- {{addEnfant.value|json}} -->
+<form [formGroup]="addEnfant">
+    <mat-horizontal-stepper #linearHorizontalStepper="matHorizontalStepper" formArrayName="formArray" linear>
+
+        <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+            <table class="container">
+                <tr class="row">
+                    <ng-template matStepLabel>Infos Enfant</ng-template>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">formControlName="prenom"
+                            <input matInput  placeholder="Prenom Enfant" id="prenom" required>
+                            <mat-error>Prenom obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="nom" placeholder="Nom Enfant" id="nom" required>
+                            <mat-error>Nom obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-md-6">
+                        <mat-radio-group class="inputOp" aria-label="Select an option" formControlName="sexe" required>
+                            <mat-radio-button value="masculin">Masculin</mat-radio-button>
+                            <mat-radio-button value="feminin">Feminin</mat-radio-button>
+                        </mat-radio-group>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput [matDatepicker]="picker" formControlName="datenaissance"
+                                placeholder="Date de Naissance" id="datenaissance" required>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                            <mat-error>Date obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="adresse" placeholder="Adress" id="adresse" required>
+                            <mat-error>Adresse obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="numetatcivil" placeholder="Numero Etat-Civil"
+                                id="numetatcivil" required>
+                            <mat-error>Etat-Civil obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+            </table>
+
+            <button type="button" style="border: 1px solid;" class="btn btn-default" data-dismiss="modal"
+                (click)="onClose()">Close</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-primary" mat-button matStepperNext>Suivant</button>
+
+        </mat-step>
+
+        <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+
+            <table class="container">
+                <tr class="row">
+                    <ng-template matStepLabel>Infos Parent</ng-template>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="numordre" placeholder="Num-Ordre" id="numordre" required>
+                            <mat-error>Numero obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="prenommere" placeholder="Prenom Mere" id="prenommere"
+                                required>
+                            <mat-error>Prenom obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="nommere" placeholder="Nom Mére" id="nommere" required>
+                            <mat-error>Nom obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput type="number" formControlName="telmere" placeholder="Telephone de la Mére"
+                                id="telmere">
+                            <mat-error>Telephone obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="etatentree" placeholder="Etat d'entrée" id="etatentree">
+                            <mat-error>Etat d'entrée obligatoire</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="etatsortie" placeholder="Etat de sortie" id="etatsortie">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="next-2">
+                <button type="button" style="border: 1px solid;" class="btn btn-default" data-dismiss="modal"
+                    (click)="onClose()">Close</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-warning" mat-button matStepperPrevious>Precedant</button>
+                <button class="btn btn-primary" mat-button matStepperNext>Suivant</button>
+            </div>
+        </mat-step>
+
+        <mat-step formGroupName="1" [stepControl]="formArray?.get([2])">
+
+            <table class="container">
+                <tr class="row">
+                    <ng-template matStepLabel>Infos Supplementaires</ng-template>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="prenomchefquartier" placeholder="Prenom du chef"
+                                id="prenomchefquartier">
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="prenombadienegokh" placeholder="Prenom Badiénne Gokh"
+                                id="prenombadienegokh">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="nomchefquartier" placeholder="Nom Chef quartier"
+                                id="nomchefquartier">
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput formControlName="nombadienegokh" placeholder="Nom Badiénne Gokh"
+                                id="nombadienegokh">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput type="number" formControlName="telchefquartier"
+                                placeholder="Tel Chef quartier" id="telchefquartier">
+                        </mat-form-field>
+                    </td>
+                    <td class="col-md-6">
+                        <mat-form-field class="input">
+                            <input matInput type="number" formControlName="telbadiennegokh"
+                                placeholder="Tel Badiénne Gokh" id="telbadiennegokh">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="next-2">
+                <button type="button" style="border: 1px solid;" class="btn btn-default" data-dismiss="modal"
+                    (click)="onClose()">Close</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-warning" mat-button matStepperPrevious>Precedant</button>
+                <button class="btn btn-primary" mat-button matStepperNext>Suivant</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Confirm your information</ng-template>
+
+            <mat-list>
+                <mat-list-item> 
+                    <strong>Prenom :</strong> {{ this.addEnfant.value.formArray[0].prenom }}
+                    <strong>---Nom :</strong> {{ this.addEnfant.value.formArray[0].nom }}
+                    <strong>---Sexe :</strong> {{ this.addEnfant.value.formArray[0].sexe }}
+                    <strong>---Date de Naissance :</strong> {{ this.addEnfant.value.formArray[0].datenaissance | date: 'yyyy-MM-dd' }}
+                </mat-list-item>
+               
+                <mat-list-item>
+                    <strong>Adresse :</strong> {{ this.addEnfant.value.formArray[0].adresse }}
+                    <strong>---Etat-Civil :</strong> {{ this.addEnfant.value.formArray[0].numetatcivil }}
+                    <strong>---Numero d'Ordre :</strong> {{ this.addEnfant.value.formArray[1].numordre }}
+                    <strong>---Prenom de la Maman :</strong> {{ this.addEnfant.value.formArray[1].prenommere }}
+                </mat-list-item>
+
+                <mat-list-item> 
+                    <strong>Nom de la Maman :</strong> {{ this.addEnfant.value.formArray[1].nommere }}
+                    <strong>---Tel Mere :</strong> {{ this.addEnfant.value.formArray[1].telmere }}
+                    <strong>---Prenom du Chef de Quartier :</strong> {{ this.addEnfant.value.formArray[1].prennomchefquartier }}
+                    <strong>---Nom du Chef de Quartier :</strong> {{this.addEnfant.value.formArray[1].nomchefquartier }}
+                </mat-list-item>
+
+                <mat-list-item> 
+                    <strong>Tel du Chef de Quartier :</strong> {{this.addEnfant.value.formArray[1].telchefquartier }}
+                    <strong>---Prenom Badiénne Gokh :</strong> {{ this.addEnfant.value.formArray[1].prenombadienegokh }}
+                    <strong>---Nom Badiénne Gokh :</strong> {{ this.addEnfant.value.formArray[1].nombadienegokh }}
+                    <strong>---Tel Badiénne Gokh :</strong> {{ this.addEnfant.value.formArray[1].telbadienegokh }}
+                    </mat-list-item>
+
+                <mat-list-item> 
+                    <strong>Etat d'entrée :</strong> {{ this.addEnfant.value.formArray[1].etatentree }}
+                    <strong>---Etat de sortie :</strong> {{ this.addEnfant.value.formArray[1].etatsortie }}
+                    <strong>---Motif de sortie :</strong> {{ this.addEnfant.value.formArray[1].motifsortie }}
+                </mat-list-item>
+            </mat-list>
+
+            <div class="next-3">
+                <button type="button" style="border: 1px solid;" class="btn btn-default" data-dismiss="modal"
+                    (click)="onClose()">Annuler</button>
+                &nbsp;&nbsp;
+                <button (click)="onAddEnfant()" class="btn btn-success" mat-button>Enregistrer</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</form>

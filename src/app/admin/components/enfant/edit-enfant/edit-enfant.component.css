@@ -1,0 +1,44 @@
+.survey-form{
+  background-color: cornsilk;
+  padding: 10px 15px 20px 15px;
+  border: 2px solid brown;
+  border-radius: 10px;
+}
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select{
+  width: 32%;
+  padding: 4px;
+  border: 1px solid;
+  border-radius: 5px;
+  height:30px;
+  font-size: 17px;
+}
+
+.textarea{
+  width:100%;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 17px;
+}
+p{
+  font-family: cursive;
+  font-size: 19px;
+  color: darkslateblue;
+}
+h1{
+  font-size: 25px;
+  text-align: center;
+  font-family: cursive;
+  color: cadetblue;
+}
+.submit {
+  margin-left: 260px;
+  width: 30%;
+  padding: 5px;
+  font-size: 13px;
+  border-radius: 10px;
+
+}

@@ -1,0 +1,80 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Formulaire de création de rendez-vous</mat-card-title>
+        <form [formGroup]="formaddrv" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center"
+            fxLayoutGap="10px">
+            <mat-card-content>
+
+                <div class="row">
+                    <mat-form-field class="col-md-4">
+                        <input matInput type="text" formControlName="numordre" placeholder="Numero Ordre" id="numordre">
+                        <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                        <mat-error *ngIf="hasError('numordre', 'required')">Numero Obligatoire</mat-error>
+                        <mat-error *ngIf="hasError('numordre', 'maxlength')">You have more than 60 characters
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input matInput type="text" formControlName="prenom" placeholder="Prenom" value={{prenom}} id="prenom">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input matInput type="text" formControlName="nom" placeholder="Nom" value={{nom}} id="nom">
+                    </mat-form-field>
+
+                </div>
+
+                <div class="row">
+                    <mat-form-field class="col-md-4">
+                        <input matInput type="text" formControlName="prenommere" placeholder="Prenom Mere" value={{prenommere}} id="prenommere">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input matInput type="text" formControlName="nommere" placeholder="Nom Mere" value={{nommere}} id="nommere">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input matInput type="text" formControlName="numetatcivil" placeholder="numetatcivil" value={{numetatcivil}} id="numetatcivil">
+                    </mat-form-field>
+
+                </div>
+
+                <div class="row">
+                <mat-form-field class="col-md-4">
+                    <input matInput [matDatepicker]="picker" placeholder="Date de Naissance" formControlName="datenaissance" value={{datenaissance}}
+                        id="daterv" readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4">
+                    <input matInput [matDatepicker]="picker" placeholder="Date du Rendez-vous" formControlName="daterv" value={{daterv}}
+                        id="daterv" (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <!-- <mat-form-field class="col-md-4">
+                    <input matInput type="text" placeholder="Vaccin" formControlName="action">
+                    <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+                    <mat-error *ngIf="hasError('action', 'required')">Vaccin is required</mat-error>
+                    <mat-error *ngIf="hasError('action', 'maxlength')">You have more than 100 characters</mat-error>
+                </mat-form-field> -->
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>Type de vaccin</mat-label>
+                    <mat-select formControlName="action">
+                      <mat-option value="/api/actions/{{ action.id }}" *ngFor="let action of actions">{{action.libelleaction}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="hasError('action', 'required')">Vaccin Obligatoire</mat-error>
+                  </mat-form-field>
+            </div>
+
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="!formaddrv.valid">Create</button>
+                <button type="button" mat-raised-button color="warn" (click)="onClose()">Annuler</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</section>

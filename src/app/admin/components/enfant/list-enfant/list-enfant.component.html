@@ -1,0 +1,65 @@
+<div class="btnCreate">
+  <button class="btnCreate" mat-raised-button (click)="onCreate()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<h2>Liste des Enfants</h2>
+<div class="btnSearch">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchEnfant" placeholder="Rechercher..."/>
+  <button class="btn1" type="submit"><i class="fas fa-search"></i></button>
+</div>
+
+<table class="container">
+  <thead>
+    <tr>
+      <th>
+        <h1>ID</h1>
+      </th>
+      <th>
+        <h1>Prenom</h1>
+      </th>
+      <th>
+        <h1>Nom</h1>
+      </th>
+      <th>
+        <h1>Sexe</h1>
+      </th>
+      <th>
+        <h1>Num-Ordre</h1>
+      </th>
+      <th>
+        <h1>Date Naissance</h1>
+      </th>
+      <th>
+        <h1>Editer</h1>
+      </th>
+      <th>
+        <h1>Detail</h1>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let enfant of enfants | filter:searchEnfant | paginate: {
+        itemsPerPage: 5,
+        currentPage: page,
+        totalItems: totalLength}">
+      <td>{{enfant.id}}</td>
+      <td>{{enfant.prenom}}</td>
+      <td>{{enfant.nom}}</td>
+      <td>{{enfant.sexe}}</td>
+      <td>{{enfant.numordre}}</td>
+      <td>{{enfant.datenaissance | date: 'yyyy-MM-dd'}}</td>
+      <td>
+        <button class="btn btn-primary" style="border-radius: 20px;" [routerLink]="[ '/admin/editEnfant', enfant.id ]">
+          <span class="fas fa-edit"></span>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-success" style="border-radius: 20px;" [routerLink]="[ '/admin/detailEnfant', enfant.id ]">
+          <span class="fas fa-eye"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>

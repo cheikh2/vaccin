@@ -1,0 +1,73 @@
+<div class="survey-form">
+    <form (ngSubmit)="onEditEnfant()">
+        <div class="upper-headings">
+            <h1><strong>Formulaire d'enfant </strong></h1>
+        </div>
+        <hr>
+        <p><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Prenom :</label>----------------------------&nbsp;<label>Nom :&nbsp;</label>-----------------------------&nbsp;<label>Sexe :</label><br/> 
+            <input type="text" [(ngModel)]="currentEnfant.prenom" name="prenom" >
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.nom" name="nom">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.sexe" name="sexe">
+        </p>
+
+        <p><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Adresse :</label>-------------------&nbsp;<label>Date de Naissance:&nbsp;</label>-------------&nbsp;<label>Numero Etat-Civil :</label><br/> 
+            <input type="text" [(ngModel)]="currentEnfant.adresse" name="adresse">
+            &nbsp;
+            <input type="text" [ngModel]="currentEnfant.datenaissance | date: 'yyyy-MM-dd'" name="datenaissance">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.numetatcivil" name="numetatcivil">
+        </p>
+
+        <p><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Numero Ordre :</label>-------------------&nbsp;<label>Prenom Maman :&nbsp;</label>----------------&nbsp;<label>Nom Maman :</label><br/> 
+            <input type="text" [(ngModel)]="currentEnfant.numordre" name="numordre">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.prenommere" name="prenommere">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.nommere" name="nommere">
+        </p>
+
+        <p><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Tel Maman :</label>------------------------&nbsp;<label>Etat d'entrée:&nbsp;</label>--------------------&nbsp;<label>Etat de sortie :</label><br/> 
+            <input type="number" [(ngModel)]="currentEnfant.telmere" name="telmere">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.etatentree" name="etatentree">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.etatsortie" name="etatsortie">
+        </p>
+
+        <p><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Prenom Chef Quartier :</label>-------------&nbsp;<label>Nom Chef Quartier:&nbsp;</label>-----------&nbsp;<label>Tel Chef Quartier :</label><br/> 
+            <input type="text" [(ngModel)]="currentEnfant.prenomchefquartier" name="prenomchefquartier">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.nomchefquartier" name="nomchefquartier">
+            &nbsp;
+            <input type="number" [(ngModel)]="currentEnfant.telchefquartier" name="telchefquartier">
+        </p>
+
+        <p><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Prenom Badiénne Gokh:</label>---------&nbsp;<label>Nom Badiénne Gokh:&nbsp;</label>----------&nbsp;<label>Tel Badiénne Gokh :</label><br/> 
+            <input type="text" [(ngModel)]="currentEnfant.prenombadienegokh" name="prenombadienegokh">
+            &nbsp;
+            <input type="text" [(ngModel)]="currentEnfant.nombadienegokh" name="nombadienegokh">
+            &nbsp;
+            <input type="number" [(ngModel)]="currentEnfant.telbadiennegokh" name="telbadiennegokh">
+        </p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            -------------------------------------
+            Motif de Sortie : ------------------------------------<br/> 
+            
+            <input type="textarea" class="textarea" [(ngModel)]="currentEnfant.motifsortie" name="motifsortie">
+        </p>
+                <div class="submit">
+                <button mat-raised-button color="primary" >Fermer</button>
+                <button type="button" mat-raised-button color="warn" (click)="onRedirect()">Annuler</button>
+                </div>
+    </form>
+</div>
+

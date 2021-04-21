@@ -1,0 +1,48 @@
+.survey-form{
+    background-color: cornsilk;
+    padding: 5px 10px 15px 5px;
+    border: 2px solid brown;
+    border-radius: 10px;
+}
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select{
+    background-color: cornsilk;
+    width: 12%;
+    padding: 3px;
+    border-radius: 15px;
+    height:30px;
+    font-style:italic;
+}
+
+.textarea{
+    background-color: cornsilk;
+    width:80%;
+    font-style:italic;
+}
+p{
+    font-family: cursive;
+    font-size: 15px;
+    color: darkslateblue;
+}
+p{
+    border: 1px solid black;
+}
+h1{
+    font-size: 20px;
+    text-align: center;
+    font-family: cursive;
+    color: cadetblue;
+}
+.submit {
+    background-color: blue;
+    cursor: pointer;
+    margin-left: 260px;
+    width: 30%;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+
+}

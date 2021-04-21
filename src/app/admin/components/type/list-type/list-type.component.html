@@ -1,0 +1,37 @@
+<div class="btnCreate">
+    <button class="btnCreate" mat-raised-button (click)="onCreate()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<h2>Liste des Types</h2>
+<table class="container">
+    <thead>
+        <tr>
+            <th>
+                <h1>ID</h1>
+            </th>
+            <th>
+                <h1>Libelle</h1>
+            </th>
+            <th>
+                <h1>Supprimer</h1>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let type of types | paginate: {
+        itemsPerPage: 5,
+        currentPage: page,
+        totalItems: totalLength}">
+            <td>{{type.id}}</td>
+            <td>{{type.libelletype}}</td>
+            <td>
+                <button class="btn btn-danger" style="border-radius: 20px;"
+                (click)="deleteType(type.id)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>

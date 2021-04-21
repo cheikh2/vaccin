@@ -1,0 +1,41 @@
+<div class="btnCreate">
+    <button class="btnCreate" mat-raised-button (click)="onCreate()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <h2>Liste des Actions</h2>
+  <table class="container">
+    <thead>
+      <tr>
+        <th>
+          <h1>ID</h1>
+        </th>
+        <th>
+          <h1>Libelleaction</h1>
+        </th>
+        <th>
+          <h1>Libelletype</h1>
+        </th>
+        <th>
+          <h1>Supprimer</h1>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let action of actions | paginate: {
+        itemsPerPage: 5,
+        currentPage: page,
+        totalItems: totalLength}">
+          <td>{{action.id}}</td>
+          <td>{{action.libelleaction}}</td>
+          <td>{{action.type.libelletype}}</td>
+          <td>
+            <button class="btn btn-danger" style="border-radius: 20px;"
+            (click)="deleteAction(action.id)">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
